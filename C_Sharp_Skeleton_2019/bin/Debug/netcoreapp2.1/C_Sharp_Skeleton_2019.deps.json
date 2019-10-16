@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "C_Sharp_Skeleton_2019/1.0.0": {
+        "runtime": {
+          "C_Sharp_Skeleton_2019.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "C_Sharp_Skeleton_2019/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

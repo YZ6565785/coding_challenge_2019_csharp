@@ -1,0 +1,16 @@
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.deps.json
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.runtimeconfig.json
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.runtimeconfig.dev.json
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.dll
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.pdb
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.dll
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/bin/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.pdb
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/obj/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.csprojAssemblyReference.cache
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/obj/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.AssemblyInfoInputs.cache
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/obj/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.AssemblyInfo.cs
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/obj/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.csproj.CopyComplete
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/obj/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.dll
+/Users/victorzhang/coding_challenge_2019/GlobalCC-csharp-16528-YZ6565785/C_Sharp_Skeleton_2019.Tests/obj/Debug/netcoreapp2.1/C_Sharp_Skeleton_2019.Tests.pdb
