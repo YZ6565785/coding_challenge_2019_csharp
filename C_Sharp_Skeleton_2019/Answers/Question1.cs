@@ -18,6 +18,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 answer = answer + repayment;
             }
             return Convert.ToInt16(Math.Round(answer + initialLevelOfDebt));
+
         }
     }
 }
