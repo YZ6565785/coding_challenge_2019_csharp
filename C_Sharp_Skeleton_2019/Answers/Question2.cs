@@ -3,51 +3,67 @@
     public class Question2
     {
         public static int Answer(int[] risk, int[] bonus, int[] trader){
-            //VERSION 9
-            //speed: 0.0949
-            int answer = 0;
-            int lowestRiskValue = risk[0];
-            foreach(int each in risk){
-                if(each<lowestRiskValue){
-                    lowestRiskValue = each;
-                }
+            //VERSION 10
+        //speed: 0.0729
+        int answer = 0;
+        int lowestRiskValue = risk[0];
+        foreach(int item in risk)
+        {
+            if(item<lowestRiskValue){
+                lowestRiskValue = item;
             }
-            bool conti = true;
-            while(conti){
-                int highestBonus =0;
-                int count =0;
-                conti = false;
-                for(int i = 0; i<bonus.Length; i++){
-                    if  (bonus[highestBonus] == bonus[i]){
-                        if (risk[i] < risk[highestBonus]){
+        }
+        bool conti = true;
+        while(conti){
+            
+
+            int highestBonus =0;
+            int count =0;
+            conti = false;
+            int i = 1;
+           
+            while(i<bonus.Length){
+                if(bonus[i] != -1){
+                    if  (bonus[highestBonus] <= bonus[i]){
+                        if(risk[highestBonus]>risk[i] || (bonus[highestBonus] < bonus[i] && risk[highestBonus]==risk[i]) ){
                             bonus[highestBonus] = -1;
                             highestBonus = i;
+                        }else if(bonus[highestBonus] == bonus[i] && (risk[highestBonus]==risk[i] || risk[highestBonus]<risk[i]) ){
+                            bonus[i] = -1;
+                        }else{
+                            highestBonus = i;
                         }
-                    }else if(bonus[highestBonus] < bonus[i]){
-                        highestBonus = i;
+                    }else{
+                        if(risk[highestBonus]==risk[i] || risk[highestBonus]<risk[i] ){
+                            bonus[i] = -1;
+                        }
                     }
                 }
-                for(int i = 0; i<bonus.Length; i++){
+                
+
+                i++;
+            }
+            int j = 0;
+            while(j<trader.Length){
+                if(trader[j] != -1){
+                    if (trader[j] >= risk[highestBonus]){
+                        trader[j] = -1;
+                        count++;
+                    }
                     if (!(conti)){
-                        if(trader[i]>=lowestRiskValue){
+                        if(trader[j]>=lowestRiskValue){
                             conti = true;
                         } 
                     }
-                        
-                    if (trader[i] == -1){
-                        continue;
-                    }
-                    if (trader[i] >= risk[highestBonus]){
-                        trader[i] = -1;
-                        count +=1;
-                    }
-                    
                 }
-                answer += (count)*bonus[highestBonus];
-                bonus[highestBonus] = -1;
+                j++;
+                
             }
-
-            return answer;
+            answer += (count)*bonus[highestBonus];
+            bonus[highestBonus] = -1;
+            
+        }
+        return answer;
         }
 
     }
