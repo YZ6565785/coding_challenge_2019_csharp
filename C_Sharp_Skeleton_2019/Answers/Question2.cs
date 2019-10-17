@@ -6,28 +6,25 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(int[] risk, int[] bonus, int[] trader){
             //VERSION 11
-            //speed: 0.24400
+            //speed: 0.24999
             int maxIndex = trader.Length;
             int answer = 0;
             Array.Sort(trader);
-            int lowestRiskValue = 99999999;
-            bool foundLowestRisk = false;
+            int lowestRiskValue = risk[0];
+            foreach(int item in risk)
+            {
+                if(item<lowestRiskValue){
+                    lowestRiskValue = item;
+                }
+            }
             bool conti = true;
             while(conti){
-                if(lowestRiskValue != 99999999){
-                    foundLowestRisk = true;
-                }
                 int highestBonus =0;
                 int count =0;
                 conti = false;
                 int i = 1;
             
                 while(i<bonus.Length){
-                    if (!foundLowestRisk){
-                        if(risk[i]<lowestRiskValue){
-                            lowestRiskValue = risk[i];
-                        }
-                    }
                     if(bonus[i] != -1){
                         if  (bonus[highestBonus] <= bonus[i]){
                             if(risk[highestBonus]>risk[i] || (bonus[highestBonus] < bonus[i] && risk[highestBonus]==risk[i]) ){
