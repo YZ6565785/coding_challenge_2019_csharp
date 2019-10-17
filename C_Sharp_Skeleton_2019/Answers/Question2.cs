@@ -10,11 +10,11 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int maxIndex = trader.Length;
             int answer = 0;
             Array.Sort(trader);
-            int lowestRiskValue = 9999;
+            int lowestRiskValue = 99999999;
             bool foundLowestRisk = false;
             bool conti = true;
             while(conti){
-                if(lowestRiskValue != 9999){
+                if(lowestRiskValue != 99999999){
                     foundLowestRisk = true;
                 }
                 int highestBonus =0;
