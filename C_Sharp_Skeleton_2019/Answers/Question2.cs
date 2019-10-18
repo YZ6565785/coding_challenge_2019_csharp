@@ -5,21 +5,29 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     public class Question2
     {
         public static int Answer(int[] risk, int[] bonus, int[] trader){
-            //VERSION 14
-            //speed: 0.202
+            //VERSION 12
+            //speed: 0.23661
             int maxIndex = trader.Length;
             int answer = 0;
             Array.Sort(trader);
-            int remain = trader.Length;
-            while(remain>0){
+            int lowestRiskValue = risk[0];
+            foreach(int item in risk)
+            {
+                if(item<lowestRiskValue){
+                    lowestRiskValue = item;
+                }
+            }
+            bool conti = true;
+            while(conti){
                 int highestBonus =0;
+                int count =0;
+                conti = false;
                 int i = 1;
                 while(i<bonus.Length){
                     if(bonus[i] != -1){
                         if(bonus[highestBonus] < bonus[i]){
                             if(risk[highestBonus]>=risk[i]){
                                 bonus[highestBonus] = -1;
-                                remain--;
                                 highestBonus = i;
                             }else{
                                 highestBonus = i;
@@ -27,28 +35,35 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                         }else{
                             if (risk[highestBonus]<=risk[i]){
                                 bonus[i] = -1;
-                                remain--;
                             }else if(bonus[highestBonus] == bonus[i]&&risk[highestBonus]>risk[i]){
                                 bonus[highestBonus] = -1;
-                                remain--;
                                 highestBonus = i;
                             }
                             
                         }
                     }
+                    
+
                     i++;
                 }
                 int j = 0;
                 while(j<maxIndex){
                     if (trader[j] >= risk[highestBonus]){
-                        answer += (maxIndex - j)* bonus[highestBonus];
+                        count+=maxIndex - j;
                         maxIndex = j;
                         break;
                     }
+                    if (!(conti)){
+                        if(trader[j]>=lowestRiskValue){
+                            conti = true;
+                        } 
+                    }
                     j++;
+                    
                 }
+                answer += (count)*bonus[highestBonus];
                 bonus[highestBonus] = -1;
-                remain--;
+                
             }
             return answer;
         }
