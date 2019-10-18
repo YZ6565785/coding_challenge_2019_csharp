@@ -4,10 +4,10 @@
     {
         public static int Answer(int[] v, int[] c, int mc)
         {
-            //version 2 greedy
-            quickSort(v,c);
+            //version 3 greedy
+            quickSort2(v,0,v.Length-1,c);
             int answer = 0;
-            for(int i=0;i<v.Length;i++){
+            for(int i=v.Length-1;i>=0;i--){
                 if(mc==0){
                     break;
                 }
@@ -21,49 +21,46 @@
         
         
 
-        static void quickSort(int[] arr1, int[] arr2){
-		    quickSortRec(arr1,0,arr1.Length-1,arr2);
-	    }
-        static void quickSortRec(int[] arr1, int lo, int hi,int[] arr2){
-            if(lo<hi){
-                int iPivot = partition(arr1,lo,hi,arr2);
-                quickSortRec(arr1,lo,iPivot-1,arr2);
-                quickSortRec(arr1,iPivot+1,hi,arr2);
+        static void quickSort2(int[] arr, int low, int high, int[] arr2){
+		
+            if (arr == null || arr.Length == 0){
+                return;
             }
-            
-        }
-        static int partition(int[] arr1,int low,int high,int[] arr2){
-            int pivot = arr1[high];  
-            int i = (low-1); // index of smaller element 
-            for (int j=low; j<high; j++) 
-            { 
-                // If current element is smaller than the pivot 
-                if (arr1[j] > pivot) 
-                { 
-                    i++; 
-        
-                    // swap arr[i] and arr[j] 
-                    int temp = arr1[i]; 
-                    arr1[i] = arr1[j]; 
-                    arr1[j] = temp; 
-                    
-                    int temp2 = arr2[i]; 
-                    arr2[i] = arr2[j]; 
-                    arr2[j] = temp2; 
-                } 
-            } 
-        
-            // swap arr[i+1] and arr[high] (or pivot) 
-            int tem = arr1[i+1]; 
-            arr1[i+1] = arr1[high]; 
-            arr1[high] = tem;   
-            
-            // swap arr[i+1] and arr[high] (or pivot) 
-            int tem2 = arr2[i+1]; 
-            arr2[i+1] = arr2[high]; 
-            arr2[high] = tem2; 
-        
-            return i+1; 
+            if (low >= high){
+                return;
+            }
+            // pick the pivot
+            int middle = low + (high - low) / 2;
+            int pivot = arr[middle];
+            // make left < pivot and right > pivot
+            int i = low, j = high;
+            while (i <= j) {
+                while (arr[i] < pivot) {
+                    i++;
+                }
+
+                while (arr[j] > pivot) {
+                    j--;
+                }
+
+                if (i <= j) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    int temp2 = arr2[i];
+                    arr2[i] = arr2[j];
+                    arr2[j] = temp2;
+                    i++;
+                    j--;
+                }
+            }
+            // recursively sort two sub parts
+            if (low < j)
+                quickSort2(arr, low, j, arr2);
+
+            if (high > i)
+                quickSort2(arr, i, high, arr2);
+            //
         }
     }
 }
