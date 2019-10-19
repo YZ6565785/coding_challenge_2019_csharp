@@ -10,9 +10,8 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             double p = 0.01;
             double repayment = initialLevelOfDebt*repaymentPercentage*p;
             double answer = initialLevelOfDebt*10*p;
-            while(repayment<=initialLevelOfDebt){
-                initialLevelOfDebt *= ((interestPercentage+100)*p);
-                initialLevelOfDebt -= repayment;
+            while(repayment<initialLevelOfDebt){
+                initialLevelOfDebt *= initialLevelOfDebt *(1+interestPercentage*p) - repayment;
                 answer += repayment;
             }
             return Convert.ToInt16(answer + initialLevelOfDebt);
