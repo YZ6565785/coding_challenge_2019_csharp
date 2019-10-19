@@ -5,14 +5,15 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(double initialLevelOfDebt, double interestPercentage, double repaymentPercentage)
         {
-            //version3 
+            //version 3.1
             //speed: 0.0039
             double p = 0.01;
             double repayment = initialLevelOfDebt*repaymentPercentage*p;
             double answer = initialLevelOfDebt*10*p;
             while(repayment<=initialLevelOfDebt){
-                initialLevelOfDebt = initialLevelOfDebt*((interestPercentage+100)*p) - repayment;
-                answer = answer + repayment;
+                initialLevelOfDebt *= ((interestPercentage+100)*p);
+                initialLevelOfDebt -= repayment;
+                answer += repayment;
             }
             return Convert.ToInt16(answer + initialLevelOfDebt);
 
