@@ -20,9 +20,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                     scoreIndex--;
                     continue;
                 }	
-                
                 int repeat = 0;
-                
                 while(aliceIndex>=0 && alice[aliceIndex] >= scores[scoreIndex]){
                     repeat++;
                     aliceIndex--;
@@ -31,7 +29,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                     count = repeat;
                     answer = rank; 
                 }
-                
                 if(aliceIndex < 0){
                     break;
                 }
@@ -39,7 +36,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                     answer = rank+1;
                 }
                 scoreIndex--;
-                
                 rank++;
             }
             return answer;
