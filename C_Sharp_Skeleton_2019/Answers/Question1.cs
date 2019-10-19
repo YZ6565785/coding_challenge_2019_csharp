@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Threading.Tasks;
-
 namespace C_Sharp_Challenge_Skeleton.Answers
 {
     public class Question1
@@ -16,7 +11,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             double repayment = initialLevelOfDebt*repaymentPercentage*p;
             double answer = initialLevelOfDebt*10*p;
             while(repayment<=initialLevelOfDebt){
-                initialLevelOfDebt = initialLevelOfDebt*(1+(interestPercentage)*p) - repayment;
+                initialLevelOfDebt = initialLevelOfDebt*((interestPercentage+100)*p) - repayment;
                 answer = answer + repayment;
             }
             return Convert.ToInt16(answer + initialLevelOfDebt);
