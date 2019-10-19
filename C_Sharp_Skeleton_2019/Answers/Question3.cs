@@ -6,48 +6,42 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(int[] scores, int[] alice)
         {
-            //version 3 0.077
+            //version 4 0.0428
             Array.Sort(scores);
-            int lastRank = -1;
-            IDictionary<int, int> dict = new Dictionary<int, int>();
+            Array.Sort(alice);
             int count = 1;
             int answer = 0;
-            for (int loop = 0; loop<alice.Length;loop++){
-                int rank =1;
-                int i = scores.Length-1;
-                int lastScore = -1;
-                while (i >= 0){
-                    if (i < 0 ){
-                        break;
-                    }
-                    if (alice[loop] < scores[i]){
-                        if(lastScore != scores[i]){
-                            rank ++;
-                        }
-                    }else{
-                        break;
-                    }
-                    lastScore = scores[i];
-                    i--;
+            int scoreIndex = scores.Length-1;
+            int alicePtr = alice.Length-1;
+            int rank = 1;
+            int aliceIndex = alicePtr;
+            while (scoreIndex>=0){
+                if(scoreIndex>0 && scores[scoreIndex] == scores[scoreIndex-1]){
+                    scoreIndex--;
+                    continue;
+                }	
+                
+                int repeat = 0;
+                
+                while(aliceIndex>=0 && alice[aliceIndex] >= scores[scoreIndex]){
+                    repeat++;
+                    aliceIndex--;
                 }
-                if(dict.ContainsKey(rank)){
-                    dict[rank]++;
-                }else{
-                    dict.Add(rank,1);
+                if(repeat >=count){
+                    count = repeat;
+                    answer = rank; 
                 }
-                if(dict[rank] >=count){
-                    if(dict[rank]==count && rank>lastRank){
-                        lastRank = rank;
-                        answer = rank;
-                    }else if(dict[rank]>count){
-                        answer = rank;
-                        count = dict[rank];
-                        
-                    }
-                    
+                
+                if(aliceIndex < 0){
+                    break;
                 }
+                if(scoreIndex==0 && alice[aliceIndex]<scores[scoreIndex] && aliceIndex>=count-1){
+                    answer = rank+1;
+                }
+                scoreIndex--;
+                
+                rank++;
             }
-            
             return answer;
         }
     }
