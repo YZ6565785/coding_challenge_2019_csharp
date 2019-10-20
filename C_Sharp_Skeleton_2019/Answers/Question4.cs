@@ -5,6 +5,7 @@
         public static int Answer(int[] v, int[] c, int mc)
         {
             //version 3 greedy
+            //asfasdfsa
             quickSort2(v,0,v.Length-1,c);
             int answer = 0;
             for(int i=v.Length-1;i>=0;i--){
