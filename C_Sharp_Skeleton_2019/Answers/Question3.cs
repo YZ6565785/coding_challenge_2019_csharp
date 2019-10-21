@@ -6,16 +6,15 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(int[] scores, int[] alice)
         {
-            //version 4 0.0428
+            //version 4 2.74
             Array.Sort(scores);
             Array.Sort(alice);
             int count = 1;
             int answer = 0;
-            int scoreIndex = scores.Length-1;
             int alicePtr = alice.Length-1;
             int rank = 1;
             int aliceIndex = alicePtr;
-            for(int scoreIndex =alicePtr; scoreIndex>=0; scoreIndex--){
+            for(int scoreIndex =scores.Length-1; scoreIndex>=0; scoreIndex --){
                 if(scoreIndex>0 && scores[scoreIndex] == scores[scoreIndex-1]){
                     continue;
                 }	
