@@ -9,7 +9,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
         {
             //version 1
             //using List!!
-
+            return 2;
             quickSort2(input,1,input.Length-2);
             List<int> freq = new List<int>();
             List<int> time = new List<int>();
