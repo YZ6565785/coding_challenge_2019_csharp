@@ -7,7 +7,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
         public static int Answer(int[] scores, int[] alice)
         {
             //version 4 0.0428
-            return -1;
             Array.Sort(scores);
             Array.Sort(alice);
             int count = 1;
@@ -16,9 +15,8 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int alicePtr = alice.Length-1;
             int rank = 1;
             int aliceIndex = alicePtr;
-            while (scoreIndex>=0){
+            for(int scoreIndex =alicePtr; scoreIndex>=0; scoreIndex--){
                 if(scoreIndex>0 && scores[scoreIndex] == scores[scoreIndex-1]){
-                    scoreIndex--;
                     continue;
                 }	
                 int repeat = 0;
@@ -36,7 +34,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 if(scoreIndex==0 && alice[aliceIndex]<scores[scoreIndex] && aliceIndex>=count-1){
                     answer = rank+1;
                 }
-                scoreIndex--;
                 rank++;
             }
             return answer;
