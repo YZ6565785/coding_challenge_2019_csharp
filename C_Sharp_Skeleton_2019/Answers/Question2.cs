@@ -5,17 +5,17 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     public class Question2
     {
         public static int Answer(int[] risk, int[] bonus, int[] trader){
-            //VERSION 12
+            //VERSION 13
             //speed: 0.23661
-            return -1;
             int maxIndex = trader.Length;
             int answer = 0;
             Array.Sort(trader);
             int lowestRiskValue = risk[0];
-            foreach(int item in risk)
+            int length = risk.Length;
+            for(int m =0; m<length; m ++)
             {
-                if(item<lowestRiskValue){
-                    lowestRiskValue = item;
+                if(risk[m]<lowestRiskValue){
+                    lowestRiskValue = risk[m];
                 }
             }
             bool conti = true;
@@ -23,8 +23,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 int highestBonus =0;
                 int count =0;
                 conti = false;
-                int i = 1;
-                while(i<bonus.Length){
+                for(int i =0; i<length; i ++){
                     if(bonus[i] != -1){
                         if(bonus[highestBonus] < bonus[i]){
                             if(risk[highestBonus]>=risk[i]){
@@ -43,12 +42,8 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                             
                         }
                     }
-                    
-
-                    i++;
                 }
-                int j = 0;
-                while(j<maxIndex){
+                for(int j =0; j<maxIndex; j ++){
                     if (trader[j] >= risk[highestBonus]){
                         count+=maxIndex - j;
                         maxIndex = j;
@@ -59,8 +54,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                             conti = true;
                         } 
                     }
-                    j++;
-                    
                 }
                 answer += (count)*bonus[highestBonus];
                 bonus[highestBonus] = -1;
