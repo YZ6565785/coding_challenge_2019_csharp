@@ -14,7 +14,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 initialLevelOfDebt = initialLevelOfDebt *(1+interestPercentage*p) - repayment;
                 answer += repayment;
             }
-            return (int)(answer + initialLevelOfDebt);
+            return Convert.ToInt16(answer + initialLevelOfDebt);
 
         }
     }
