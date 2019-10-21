@@ -14,11 +14,12 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int alicePtr = alice.Length-1;
             int rank = 1;
             int aliceIndex = alicePtr;
-            for(int scoreIndex =scores.Length-1; scoreIndex>=0; scoreIndex --){
+            int scoreIndex, repeat;
+            for(scoreIndex =scores.Length-1; scoreIndex>=0; scoreIndex --){
                 if(scoreIndex>0 && scores[scoreIndex] == scores[scoreIndex-1]){
                     continue;
                 }	
-                int repeat = 0;
+                repeat = 0;
                 while(aliceIndex>=0 && alice[aliceIndex] >= scores[scoreIndex]){
                     repeat++;
                     aliceIndex--;
