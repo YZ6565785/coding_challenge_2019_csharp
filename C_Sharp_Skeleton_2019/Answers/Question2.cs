@@ -7,6 +7,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
         public static int Answer(int[] risk, int[] bonus, int[] trader){
             //VERSION 12
             //speed: 0.23661
+            return -1;
             int maxIndex = trader.Length;
             int answer = 0;
             Array.Sort(trader);

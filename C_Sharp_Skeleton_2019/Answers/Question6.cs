@@ -5,6 +5,7 @@
         public static int Answer(string[] input)
         {
             //version 3 0.038
+            return -1;
             int answer = 0;
             bool getSameStart = false;
             char start = input[0][0];
