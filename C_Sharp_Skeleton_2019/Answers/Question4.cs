@@ -4,24 +4,61 @@
     {
         public static int Answer(int[] v, int[] c, int mc)
         {
-            //version 4 memo version
-            int i, j; 
-            int length = v.Length;
-            int[,] memo = new int[length+1, mc+1]; 
-            for (i = 0; i <= length; i++){ 
-                for (j = 0; j <= mc; j++){ 
-                    if (i==0 || j==0){
-                        memo[i, j] = 0; 
-                    }else if (c[i-1] <= j){
-                        int a = v[i-1] + memo[i-1, j-c[i-1]];
-                        int b = memo[i-1, j];
-                        memo[i, j] = (a>b)?a:b;
-                    }else{
-                        memo[i, j] = memo[i-1, j]; 
-                    }
-                } 
-            } 
-            return memo[length, mc]; 
+            //version 3 greedy
+            quickSort2(v,0,v.Length-1,c);
+            int answer = 0;
+            for(int i=v.Length-1;i>=0;i--){
+                if(mc==0){
+                    break;
+                }
+                if(c[i]<=mc){
+                    mc -=c[i];
+                    answer+=v[i];
+                }
+            }
+            return answer;
+        }
+        
+        
+
+        static void quickSort2(int[] arr, int low, int high, int[] arr2){
+		
+            if (arr == null || arr.Length == 0){
+                return;
+            }
+            if (low >= high){
+                return;
+            }
+            // pick the pivot
+            int middle = low + (high - low) / 2;
+            int pivot = arr[middle];
+            // make left < pivot and right > pivot
+            int i = low, j = high;
+            while (i <= j) {
+                while (arr[i] < pivot) {
+                    i++;
+                }
+
+                while (arr[j] > pivot) {
+                    j--;
+                }
+
+                if (i <= j) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    int temp2 = arr2[i];
+                    arr2[i] = arr2[j];
+                    arr2[j] = temp2;
+                    i++;
+                    j--;
+                }
+            }
+            if (low < j)
+                quickSort2(arr, low, j, arr2);
+
+            if (high > i)
+                quickSort2(arr, i, high, arr2);
         }
     }
 }
