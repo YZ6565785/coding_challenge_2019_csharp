@@ -12,8 +12,8 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int answer = 0;
             Array.Sort(trader);
             Array.Sort(bonus,risk);
-            int maxIndex = risk.Length;
-            int i, j;
+            int maxIndex = risk.Length-1;
+            int i, j, count, ans, start, end;
             int lastRisk = 999;
             for(i =risk.Length-1; i>=0; i--){
                 if(maxIndex == -1){
@@ -22,14 +22,23 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 if(risk[i]>=lastRisk){
                     continue;
                 }else{
-                    lastRisk = risk[i];
-                    for(j =0; j<maxIndex; j++){
-                        if (trader[j] >= risk[i]){
-                            break;
-                        }
+                    //binary search
+                    count =0;
+                    ans = -1;
+                    start = 0; 
+                    end = maxIndex;
+                    while(start<=end){
+                        int mid = (start + end) / 2;
+                        if (trader[mid] < risk[i]){ 
+                            start = mid + 1; 
+                        }else{ 
+                            ans = mid; 
+                            end = mid - 1; 
+                        } 
                     }
-                    answer += (maxIndex-j)*bonus[i];
-                    maxIndex = j;
+                    count = (ans==-1)? 0 : maxIndex-ans+1;
+                    maxIndex = (ans==-1)? maxIndex : ans-1;
+                    answer += (count)*bonus[i];
                 }
             }
             return answer;
