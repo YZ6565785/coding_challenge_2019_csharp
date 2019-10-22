@@ -16,6 +16,12 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int i, j;
             int lastRisk = 999;
             for(i =length-1; i>=0; i--){
+                try{
+                    if(bonus[i-1] == bonus[i] && risk[i-1] < risk[i]){
+                        continue;
+                    }
+                }catch (Exception e) {
+                }
                 if(risk[i]>=lastRisk){
                     continue;
                 }else{
