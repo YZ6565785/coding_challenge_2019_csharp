@@ -13,25 +13,26 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int answer = 0;
             int alicePtr = alice.Length-1;
             int rank = 1;
-            int aliceIndex = alicePtr;
-            int scoreIndex, repeat;
-            for(scoreIndex =scores.Length-1; scoreIndex>=0; scoreIndex --){
-                if(scoreIndex>0 && scores[scoreIndex] == scores[scoreIndex-1]){
+            int i, repeat, j;
+            for(i =scores.Length-1; i>=0; i --){
+                if(i>0 && scores[i] == scores[i-1]){
                     continue;
                 }	
-                repeat = 0;
-                while(aliceIndex>=0 && alice[aliceIndex] >= scores[scoreIndex]){
-                    repeat++;
-                    aliceIndex--;
+                
+                for(j= alicePtr; j>=0;j--){
+                    if(alice[j] < scores[i]){
+                        break;
+                    }
                 }
+                repeat = alicePtr-j;
                 if(repeat >=count){
                     count = repeat;
                     answer = rank; 
                 }
-                if(aliceIndex < 0){
+                if(j < 0){
                     break;
                 }
-                if(scoreIndex==0 && alice[aliceIndex]<scores[scoreIndex] && aliceIndex>=count-1){
+                if(i==0 && alice[j]<scores[i] && j>=count-1){
                     answer = rank+1;
                 }
                 rank++;
