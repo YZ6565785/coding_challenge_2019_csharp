@@ -25,6 +25,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                     }
                 }
                 repeat = alicePtr-j;
+                alicePtr = j;
                 if(repeat >=count){
                     count = repeat;
                     answer = rank; 
