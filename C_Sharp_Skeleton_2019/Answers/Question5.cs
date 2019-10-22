@@ -22,7 +22,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             for(i = 3; i < input.Length-1; i+=2){
                 notFound = true;
                 int modifiedF, modifiedT, modifyIndex;
-                notCounter = false;
                 modifyIndex = -1;
                 modifiedF = 0;
                 for(int index  = 0; index <freq.Count; index++){
