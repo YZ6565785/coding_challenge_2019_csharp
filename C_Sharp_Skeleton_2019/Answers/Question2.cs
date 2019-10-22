@@ -12,7 +12,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int answer = 0;
             Array.Sort(trader);
             Array.Sort(bonus,risk);
-            int maxIndex = risk.Length-1;
+            int maxIndex = risk.Length;
             int i, j;
             int lastRisk = 999;
             for(i =risk.Length-1; i>=0; i--){
@@ -23,8 +23,8 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                     continue;
                 }else{
                     lastRisk = risk[i];
-                    for(j =maxIndex; j>=0; j--){
-                        if (trader[j] < risk[i]){
+                    for(j =0; j<maxIndex; j++){
+                        if (trader[j] >= risk[i]){
                             break;
                         }
                     }
