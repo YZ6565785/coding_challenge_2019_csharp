@@ -10,12 +10,9 @@
             char lastI = input[0][input[0].Length-1];
             int i;
             for(i = input.Length-1; i>=0; i--){
-                if(input[i].StartsWith(start)){
-                    if(input[i].EndsWith(lastI)){
-                        return i;
-                    }
+                if(input[i].StartsWith(start) && input[i].EndsWith(lastI)){
+                    return i;
                 }
-                i--;
             }  
             return answer;
         }

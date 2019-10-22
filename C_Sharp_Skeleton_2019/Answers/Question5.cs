@@ -3,46 +3,42 @@ using System.Collections.Generic;
 
 namespace C_Sharp_Challenge_Skeleton.Answers
 {
-    struct Instance{
-        public int time;
-        public int freq;
-        public Instance(int Time, int Freq)
-        {
-            time = Time;
-            freq = Freq;
-        }
-    }
     public class Question5
     {
         public static int Answer(int[] input)
         {   
             quickSort2(input,1,input.Length-2);
-            //using struct
-            List<Instance> list = new List<Instance>();
-            list.Add(new Instance(input[1], input[2]));
+            //using List!!
+            List<int> freq = new List<int>();
+            List<int> time = new List<int>();
+            int launchT = input[1];
+            int launchF = input[2];
             
+            freq.Add(launchF);
+            time.Add(launchT);
+            
+
             int i;
             int count = 1;
             bool notFound;
             int length = input.Length;
             for(i = 3; i < length-1; i+=2){
                 notFound = true;
-                bool notCounter, readyModify, matched;
+                bool  matched;
                 int modifiedF, modifiedT, modifyIndex;
-                notCounter = false;
                 matched = false;
                 modifyIndex = -1;
                 modifiedF = 0;
-                //using struct
+                //using list
                 
-                for(int index  = list.Count-1; index >=0; index--){
+                for(int index  = freq.Count-1; index >=0; index--){
                     
-                    if(list[index].freq == input[i+1]){
+                    if(freq[index] == input[i+1]){
                         notFound = false;
                         break;
                     }else{
                             modifiedF = input[i+1];
-                            modifiedT = list[index].time + (Math.Abs(modifiedF-list[index].freq));
+                            modifiedT = time[index] + (Math.Abs(modifiedF-freq[index]));
                             if(modifiedT <= input[i] &&  !matched){
                                 if(modifiedT == input[i]){
                                     matched = true;
@@ -54,15 +50,14 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 if(notFound){
                     
                     if(modifyIndex != -1){
-                        //using struct
-                        
-                        list[modifyIndex] = new Instance(input[i],modifiedF);
+                        //using list
+                        time[modifyIndex] = input[i];
+                        freq[modifyIndex] = modifiedF;
                         continue;
                     }
-                    //using struct
-                    
-                    list.Add(new Instance(input[i],input[i+1] ));
-                    
+                    //using list
+                    freq.Add(input[i+1]);
+                    time.Add(input[i]);
                     count++;
                 }
                 
