@@ -25,10 +25,10 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                         if (trader[j] >= risk[i]){
                             count++;
                         }else{
-                            maxIndex = j;
                             break;
                         }
                     }
+                    maxIndex = j;
                     answer += (count)*bonus[i];
                 }
             }
