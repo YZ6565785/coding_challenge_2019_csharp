@@ -3,54 +3,71 @@ using System.Collections.Generic;
 
 namespace C_Sharp_Challenge_Skeleton.Answers
 {
+    struct Instance{
+        public int time;
+        public int freq;
+        public Instance(int Time, int Freq)
+        {
+            time = Time;
+            freq = Freq;
+        }
+    }
     public class Question5
     {
         public static int Answer(int[] input)
         {   
-            return 2;
-            //using List!!
             quickSort2(input,1,input.Length-2);
-            //Instance[] arr = new Instance[];
-            List<int> freq = new List<int>();
-            List<int> time = new List<int>();
-            int launchT = input[1];
-            int launchF = input[2];
-            freq.Add(launchF);
-            time.Add(launchT);
+            //using struct
+            List<Instance> list = new List<Instance>();
+            list.Add(new Instance(input[1], input[2]));
+            
             int i;
             int count = 1;
             bool notFound;
-            for(i = 3; i < input.Length-1; i+=2){
+            int length = input.Length;
+            for(i = 3; i < length-1; i+=2){
                 notFound = true;
+                bool notCounter, readyModify, matched;
                 int modifiedF, modifiedT, modifyIndex;
+                notCounter = false;
+                matched = false;
                 modifyIndex = -1;
                 modifiedF = 0;
-                for(int index  = 0; index <freq.Count; index++){
-                    if(freq[index] == input[i+1]){
+                //using struct
+                
+                for(int index  = list.Count-1; index >=0; index--){
+                    
+                    if(list[index].freq == input[i+1]){
                         notFound = false;
                         break;
                     }else{
-                        if(modifyIndex ==-1 && time[index] != -1){
                             modifiedF = input[i+1];
-                            modifiedT = time[index]+ (Math.Abs(modifiedF-freq[index]));
-                            if(modifiedT <= input[i]){
+                            modifiedT = list[index].time + (Math.Abs(modifiedF-list[index].freq));
+                            if(modifiedT <= input[i] &&  !matched){
+                                if(modifiedT == input[i]){
+                                    matched = true;
+                                }
                                 modifyIndex = index;
                             }
-                        }
                     }
                 }
                 if(notFound){
+                    
                     if(modifyIndex != -1){
-                        time[modifyIndex] = -1;
-                        time.Add(input[i]);
-                        freq.Add(modifiedF);
+                        //using struct
+                        
+                        list[modifyIndex] = new Instance(input[i],modifiedF);
                         continue;
                     }
-                    freq.Add(input[i+1]);
-                    time.Add(input[i]);
+                    //using struct
+                    
+                    list.Add(new Instance(input[i],input[i+1] ));
+                    
                     count++;
                 }
+                
             }
+            
             return count;
         }
         static void quickSort2(int[] arr, int low, int high){
