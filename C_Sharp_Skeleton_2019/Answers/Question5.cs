@@ -85,7 +85,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 if (i <= j) {
                     int temp = arr[i];
                     arr[i] = arr[j];
-                    arr[j] = temp1;
+                    arr[j] = temp;
                     temp = arr[i+1];
                     arr[i+1] = arr[j+1];
                     arr[j+1] = temp;
