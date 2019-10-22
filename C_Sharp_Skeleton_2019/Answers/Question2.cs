@@ -6,26 +6,21 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     public class Question2
     {
         public static int Answer(int[] risk, int[] bonus, int[] trader){
-            //VERSION 15
-            //speed: 0.156127
-            int maxIndex = trader.Length-1;
+            //VERSION 15.1
+            //speed: 0.143
+            
             int answer = 0;
             Array.Sort(trader);
             Array.Sort(bonus,risk);
-            int length = risk.Length;
-            int i, j;
+            int last = risk.Length-1;
+            int maxIndex = last;
+            int i, j, count;
             int lastRisk = 999;
-            for(i =length-1; i>=0; i--){
-                try{
-                    if(bonus[i-1] == bonus[i] && risk[i-1] < risk[i]){
-                        continue;
-                    }
-                }catch (Exception e) {
-                }
+            for(i =last; i>=0; i--){
                 if(risk[i]>=lastRisk){
                     continue;
                 }else{
-                    int count =0;
+                    count =0;
                     lastRisk = risk[i];
                     for(j =maxIndex; j>=0; j--){
                         if (trader[j] >= risk[i]){
