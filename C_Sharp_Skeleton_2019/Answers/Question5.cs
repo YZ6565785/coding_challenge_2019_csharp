@@ -66,9 +66,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             return count;
         }
         static void quickSort2(int[] arr, int low, int high){
-            if (arr == null || arr.Length == 0){
-                return;
-            }
             if (low >= high){
                 return;
             }
@@ -77,22 +74,21 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 middle++;
             }
             int pivot = arr[middle];
-            int afterPivot = arr[middle+1];
             int i = low, j = high;
             while (i <= j) {
-                while (arr[i] < pivot || (arr[i] == pivot && arr[i+1]<afterPivot)) {
+                while (arr[i] < pivot) {
                     i+=2;
                 }
-                while (arr[j] > pivot || (arr[j] == pivot && arr[j+1]>afterPivot)) {
+                while (arr[j] > pivot) {
                     j-=2;
                 }
                 if (i <= j) {
-                    int temp1 = arr[i];
-                    int temp2 = arr[i+1];
+                    int temp = arr[i];
                     arr[i] = arr[j];
-                    arr[i+1] = arr[j+1];
                     arr[j] = temp1;
-                    arr[j+1] = temp2;
+                    temp = arr[i+1];
+                    arr[i+1] = arr[j+1];
+                    arr[j+1] = temp;
                     i+=2;
                     j-=2;
                 }
