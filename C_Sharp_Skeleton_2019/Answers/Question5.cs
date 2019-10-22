@@ -53,7 +53,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             }
             return count;
         }
-        static void quickSort2(Integer[] arr, int low, int high){
+        static void quickSort2(int[] arr, int low, int high){
             if (arr == null || arr.Length == 0){
                 return;
             }
