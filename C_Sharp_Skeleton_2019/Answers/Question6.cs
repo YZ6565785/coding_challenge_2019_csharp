@@ -4,7 +4,8 @@
     {
         public static int Answer(string[] input)
         {
-            //version 3 0.034
+            //version 3 
+            //0.034
             char start = input[0][0];
             char lastI = input[0][input[0].Length-1];
             int i;
