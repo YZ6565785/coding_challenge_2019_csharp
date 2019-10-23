@@ -15,6 +15,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int maxIndex = risk.Length-1;
             int i, j;
             int lastRisk = 999;
+            int count;
             for(i =risk.Length-1; i>=0; i--){
                 if(maxIndex == -1){
                     break;
@@ -22,33 +23,14 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 if(risk[i]>=lastRisk){
                     continue;
                 }else{
-                    int count = 0;
-                    if(maxIndex>=10){
-                        int ans = -1;
-                        int start = 0; 
-                        int end = maxIndex;
-                        while(start<=end){
-                            int mid = (start + end) / 2; 
-                            //System.out.println("middle : " + Integer.toString(mid));
-                            if (trader[mid] < risk[i]){ 
-                                start = mid + 1; 
-                            }else{ 
-                                ans = mid; 
-                                end = mid - 1; 
-                            } 
-                        }
-                        //System.out.println("ans : " + Integer.toString(ans));
-                        count = (ans==-1)? 0 : maxIndex-ans+1;
-                        maxIndex = (ans==-1)? maxIndex : ans-1;
-                    }else{
-                        for(j =maxIndex; j>=0; j--){
+                    count = 0;
+                    for(j =maxIndex; j>=0; j--){
                             if (trader[j] < risk[i]){
                                 break;
                             }
                         }
                         count = maxIndex-j;
                         maxIndex = j;
-                    }
                 
                     answer += (count)*bonus[i];
                     
