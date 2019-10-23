@@ -6,14 +6,14 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     public class Question2
     {
         public static int Answer(int[] risk, int[] bonus, int[] trader){
-            //VERSION 15.1
+            //VERSION 15.1 reverse
             //speed: 0.143
             
             int answer = 0;
             Array.Sort(trader);
             Array.Sort(bonus,risk);
             int maxIndex = risk.Length-1;
-            int i, j, count, ans, start, end;
+            int i, j;
             int lastRisk = 999;
             for(i =risk.Length-1; i>=0; i--){
                 if(maxIndex == -1){
@@ -22,23 +22,14 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 if(risk[i]>=lastRisk){
                     continue;
                 }else{
-                    //binary search
-                    count =0;
-                    ans = -1;
-                    start = 0; 
-                    end = maxIndex;
-                    while(start<=end){
-                        int mid = (start + end) / 2;
-                        if (trader[mid] < risk[i]){ 
-                            start = mid + 1; 
-                        }else{ 
-                            ans = mid; 
-                            end = mid - 1; 
-                        } 
+                    lastRisk = risk[i];
+                    for(j =maxIndex; j>=0; j--){
+                        if (trader[j] < risk[i]){
+                            break;
+                        }
                     }
-                    count = (ans==-1)? 0 : maxIndex-ans+1;
-                    maxIndex = (ans==-1)? maxIndex : ans-1;
-                    answer += (count)*bonus[i];
+                    answer += (maxIndex-j)*bonus[i];
+                    maxIndex = j;
                 }
             }
             return answer;
