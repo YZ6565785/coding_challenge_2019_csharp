@@ -24,12 +24,12 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 }else{
                     count = 0;
                     for(j =maxIndex; j>=0; j--){
-                            if (trader[j] < risk[i]){
-                                break;
-                            }
+                        if (trader[j] < risk[i]){
+                            break;
                         }
-                        count = maxIndex-j;
-                        maxIndex = j;
+                    }
+                    count = maxIndex-j;
+                    maxIndex = j;
                 
                     answer += (count)*bonus[i];
                     
