@@ -7,7 +7,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(int[] input)
         {   
-            return -1;
             quickSort2(input,1,input.Length-2);
             //using List!!
             List<int> freq = new List<int>();

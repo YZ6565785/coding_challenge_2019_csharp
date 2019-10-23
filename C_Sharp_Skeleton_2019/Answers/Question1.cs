@@ -7,7 +7,6 @@ namespace C_Sharp_Challenge_Skeleton.Answers
         {
             //version 3.2.0
             //speed: 0.0039
-            return -1;
             double p = 0.01;
             double repayment = initialLevelOfDebt*repaymentPercentage*p;
             double answer = initialLevelOfDebt*0.1;
