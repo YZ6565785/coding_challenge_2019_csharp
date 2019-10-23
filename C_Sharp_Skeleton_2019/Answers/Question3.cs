@@ -7,6 +7,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
         public static int Answer(int[] scores, int[] alice)
         {
             //version 4 2.74
+            return -1;
             Array.Sort(scores);
             Array.Sort(alice);
             int count = 1;

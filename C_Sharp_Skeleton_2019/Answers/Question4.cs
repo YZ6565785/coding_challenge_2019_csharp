@@ -7,6 +7,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
         public static int Answer(int[] v, int[] c, int mc)
         {
             //version 4 greedy
+            return -1;
             Array.Sort(v,c);
             int answer = 0;
             for(int i=v.Length-1;i>=0;i--){

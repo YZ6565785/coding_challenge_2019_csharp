@@ -8,7 +8,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
         public static int Answer(int[] risk, int[] bonus, int[] trader){
             //VERSION 15.1 reverse
             //speed: 0.143
-            
+            return -1;
             int answer = 0;
             Array.Sort(trader);
             Array.Sort(bonus,risk);

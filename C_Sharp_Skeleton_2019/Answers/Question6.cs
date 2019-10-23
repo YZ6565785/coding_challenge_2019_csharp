@@ -5,7 +5,7 @@
         public static int Answer(string[] input)
         {
             //version 3 0.034
-            int answer = 0;
+            return -1;
             char start = input[0][0];
             char lastI = input[0][input[0].Length-1];
             int i;
@@ -13,8 +13,8 @@
                 if(input[i].StartsWith(start) && input[i].EndsWith(lastI)){
                     return i;
                 }
-            }  
-            return answer;
+            } 
+            return 0;
         }
     }
 }
