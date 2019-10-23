@@ -22,14 +22,36 @@ namespace C_Sharp_Challenge_Skeleton.Answers
                 if(risk[i]>=lastRisk){
                     continue;
                 }else{
-                    lastRisk = risk[i];
-                    for(j =maxIndex; j>=0; j--){
-                        if (trader[j] < risk[i]){
-                            break;
+                    int count = 0;
+                    if(maxIndex>=10){
+                        int ans = -1;
+                        int start = 0; 
+                        int end = maxIndex;
+                        while(start<=end){
+                            int mid = (start + end) / 2; 
+                            //System.out.println("middle : " + Integer.toString(mid));
+                            if (trader[mid] < risk[i]){ 
+                                start = mid + 1; 
+                            }else{ 
+                                ans = mid; 
+                                end = mid - 1; 
+                            } 
                         }
+                        //System.out.println("ans : " + Integer.toString(ans));
+                        count = (ans==-1)? 0 : maxIndex-ans+1;
+                        maxIndex = (ans==-1)? maxIndex : ans-1;
+                    }else{
+                        for(j =maxIndex; j>=0; j--){
+                            if (trader[j] < risk[i]){
+                                break;
+                            }
+                        }
+                        count = maxIndex-j;
+                        maxIndex = j;
                     }
-                    answer += (maxIndex-j)*bonus[i];
-                    maxIndex = j;
+                
+                    answer += (count)*bonus[i];
+                    
                 }
             }
             return answer;
